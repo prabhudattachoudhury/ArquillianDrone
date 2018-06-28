@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian xmlns="http://jboss.org/schema/arquillian"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://jboss.org/schema/arquillian
+        http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+   <!--  <extension qualifier="webdriver">
+        <property name="browserCapabilities">firefox</property>
+    </extension> -->
+
+    <!-- If you are running Firefox browser and you want to change 
+         the binary location, you can do it by uncommenting 
+         the following code and deleting the previous extension 
+         fragment. -->
+
+    
+    <extension qualifier="webdriver">
+        <property name="browser">chrome</property>
+        <property name="chromeDriverBinary">D:\workspace\arquillian-examples-master\arquillian-jpa-drone\src\test\resources\driver\chromedriver.exe</property>
+   		<property name="chromeDriverVersion">2.10</property>
+   		<property name = "seleniumServerBinary">D:\workspace\arquillian-examples-master\arquillian-jpa-drone\src\test\resources\driver\selenium-server-standalone-3.6.0.jar</property>
+ 		  <property name="downloadBinaries">false</property>
+ 		   <property name="remoteReusable">true</property>
+ 		  <property name = "remoteAddress ">http://localhost:4444/wd/hub</property>
+ 		  <property name="javascriptEnabled">true</property>
+ 		  <property name = "htmlUnitWebClientOptions">timeout=10;throwExceptionOnScriptError=false;</property>
+ 		  <property name="dimensions">max</property>
+ 		   <property name="waitGuiInterval">300</property>
+    </extension>
+    
+     <container qualifier="tomcat-managed" default="true">
+       <configuration>
+           <property name="CATALINA_HOME">E:\software\tomcat8\apache-tomcat-8.0.52\bin</property>
+           <property name="javaVmArguments">-Xrunjdwp:transport=dt_socket,address=5505,server=y,suspend=n -Xmx1024m -XX:MaxPermSize=256m</property>
+       </configuration>
+   </container>
+</arquillian> 
